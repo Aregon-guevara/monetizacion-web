@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RewardGo - Recompensas y Juegos</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background: #f4f6f9; color: #333; margin: 0; padding: 40px 20px; }
+    .card { max-width: 450px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    h1 { color: #2e7d32; font-size: 28px; margin-bottom: 10px; }
+    p { font-size: 16px; color: #555; line-height: 1.5; }
+    .btn { display: inline-block; margin-top: 20px; padding: 14px 28px; background: #2e7d32; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+    .footer { margin-top: 30px; font-size: 13px; color: #888; }
+  </style>
+  <script>
+    // Captura los parámetros de la URL (ej. ?ref=NQC)
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref') || '';
+    const packageId = "com.mycompany.rewardgo";
+    
+    // Si viene un código de referido o el usuario hace clic, redirige a Google Play
+    let playStoreUrl = `[suspicious link removed]{packageId}`;
+    if (ref) {
+      playStoreUrl += `&referrer=ref%3D${encodeURIComponent(ref)}`;
+    }
+
+    // Redirige automáticamente si incluye parámetro ref
+    if (ref) {
+      window.location.href = playStoreUrl;
+    }
+
+    function redirectToPlayStore() {
+      window.location.href = playStoreUrl;
+    }
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h1>🎁 RewardGo</h1>
+    <p>La plataforma de entretenimiento donde juegas, completas tareas y obtienes recompensas.</p>
+    <button class="btn" onclick="redirectToPlayStore()">Descargar en Google Play</button>
+    <div class="footer">
+      <p>&copy; Aregon Solutions. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</body>
+</html>
