@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aregon Solutions | Desarrollo de Software & Apps Móviles</title>
+  <link rel="preconnect" href="[suspicious link removed]">
+  <link rel="preconnect" href="[suspicious link removed]" crossorigin>
+  <link href="[suspicious link removed]" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #10b981;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+    
+    header { max-width: 1100px; margin: 0 auto; padding: 40px 20px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 24px; font-weight: 700; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--primary); }
+
+    .hero { max-width: 1100px; margin: 40px auto 60px; padding: 0 20px; text-align: center; }
+    .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 16px; background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 18px; color: var(--text-muted); max-width: 650px; margin: 0 auto 30px; }
+
+    .section-title { font-size: 26px; font-weight: 600; text-align: center; margin-bottom: 30px; color: #fff; }
+
+    .container { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+
+    .card { background-color: var(--bg-card); border-radius: 16px; padding: 28px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s, box-shadow 0.2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+    .card-badge { display: inline-block; background: rgba(37, 99, 235, 0.15); color: var(--primary); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
+    .card h3 { font-size: 22px; margin-bottom: 10px; color: #fff; }
+    .card p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: var(--primary); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+    .btn:hover { background-color: var(--primary-dark); }
+    .btn-secondary { background-color: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); }
+    .btn-secondary:hover { background-color: rgba(255,255,255,0.05); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .service-item { background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
+    .service-item h4 { color: var(--accent); margin-bottom: 8px; font-size: 16px; }
+
+    footer { text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado / Logo -->
+  <header>
+    <a href="#" class="logo">Aregon <span>Solutions</span></a>
+  </header>
+
+  <!-- Presentación Principal -->
+  <section class="hero">
+    <h1>Desarrollo de Apps Móviles & Software Independiente</h1>
+    <p>Creamos aplicaciones móviles de alto rendimiento, plataformas interactivas y sistemas escalables orientados a la experiencia del usuario y la monetización inteligente.</p>
+  </section>
+
+  <!-- Portafolio de Proyectos -->
+  <section class="container">
+    <h2 class="section-title">📱 Proyectos Destacados</h2>
+    <div class="grid">
+      
+      <!-- Proyecto 1: RewardGo -->
+      <div class="card">
+        <span class="card-badge">En Producción (Google Play)</span>
+        <h3>RewardGo</h3>
+        <p>Plataforma de entretenimiento con minijuegos integrados, encuestas de opinión y recompensas en tiempo real respaldada por Firebase Cloud Infrastructure y monetización AdMob.</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="https://play.google.com/store/apps/details?id=com.mycompany.rewardgo" target="_blank" class="btn">Ver en Play Store</a>
+          <a href="/rewardgo" class="btn btn-secondary">Página de la App</a>
+        </div>
+      </div>
+
+      <!-- Proyecto 2: Próximo Desarrollo -->
+      <div class="card" style="opacity: 0.7;">
+        <span class="card-badge" style="color: var(--text-muted); background: rgba(255,255,255,0.05);">En Desarrollo</span>
+        <h3>Próximo Proyecto</h3>
+        <p>Nuevas herramientas y experiencias digitales en fase de arquitectura y diseño. Muy pronto disponibles para Android y Web.</p>
+        <a href="#" class="btn btn-secondary" style="pointer-events: none;">Próximamente</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Servicios y Especialidades -->
+  <section class="container">
+    <h2 class="section-title">⚙️ Especialidades Técnicas</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <h4>Flutter & Mobile Apps</h4>
+        <p>Desarrollo multiplataforma nativo para Android e iOS con arquitectura limpia y alto desempeño.</p>
+      </div>
+      <div class="service-item">
+        <h4>Firebase & Cloud Backend</h4>
+        <p>Servicios serverless con Cloud Functions, Firestore, validaciones atómicas y reglas de seguridad de datos.</p>
+      </div>
+      <div class="service-item">
+        <h4>Monetización & AdMob</h4>
+        <p>Integración de anuncios nativos, verificación SSV en servidor y muros de tareas con SDKs de terceros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2026 Aregon Solutions. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
