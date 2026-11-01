@@ -3,42 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RewardGo - Recompensas y Juegos</title>
+  <title>RewardGo - ¡Te han invitado!</title>
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background: #f4f6f9; color: #333; margin: 0; padding: 40px 20px; }
-    .card { max-width: 450px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    h1 { color: #2e7d32; font-size: 28px; margin-bottom: 10px; }
-    p { font-size: 16px; color: #555; line-height: 1.5; }
-    .btn { display: inline-block; margin-top: 20px; padding: 14px 28px; background: #2e7d32; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
-    .footer { margin-top: 30px; font-size: 13px; color: #888; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background: #241751; color: white; padding: 40px 20px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .card { max-width: 440px; width: 100%; background: #332170; padding: 32px 24px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); }
+    h1 { color: #FFB800; font-size: 26px; margin-bottom: 12px; }
+    p { font-size: 15px; color: #E0E0E0; line-height: 1.5; margin-bottom: 16px; }
+    .code-box { background: rgba(0,0,0,0.3); border: 1px dashed #FFB800; border-radius: 10px; padding: 12px; margin: 16px 0; font-weight: bold; color: #FFB800; font-size: 18px; display: none; }
+    .btn { display: block; width: 100%; padding: 15px; margin-top: 12px; border-radius: 12px; font-weight: bold; text-decoration: none; font-size: 15px; transition: transform 0.2s, background 0.2s; }
+    .btn-web { background: #6C5CE7; color: white; }
+    .btn-web:hover { background: #5B4BC4; transform: translateY(-2px); }
+    .btn-play { background: #FFB800; color: #1A0D3F; }
+    .btn-play:hover { background: #FFA800; transform: translateY(-2px); }
+    .footer { margin-top: 24px; font-size: 12px; color: #A090C0; }
   </style>
   <script>
-    // Captura los parámetros de la URL (ej. ?ref=NQC)
     const urlParams = new URLSearchParams(window.location.search);
     const ref = urlParams.get('ref') || '';
     const packageId = "com.mycompany.rewardgo";
-    
-    // Si viene un código de referido o el usuario hace clic, redirige a Google Play
-    let playStoreUrl = `[suspicious link removed]{packageId}`;
-    if (ref) {
-      playStoreUrl += `&referrer=ref%3D${encodeURIComponent(ref)}`;
-    }
+    const firebaseWebUrl = "[suspicious link removed]"; // Tu hosting de Firebase Web
 
-    // Redirige automáticamente si incluye parámetro ref
-    if (ref) {
-      window.location.href = playStoreUrl;
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+      let playStoreUrl = `[suspicious link removed]{packageId}`;
+      let finalWebUrl = firebaseWebUrl;
 
-    function redirectToPlayStore() {
-      window.location.href = playStoreUrl;
-    }
+      if (ref) {
+        document.getElementById('refCode').textContent = ref;
+        document.getElementById('codeDisplay').style.display = 'block';
+        playStoreUrl += `&referrer=utm_source%3Dreferral%26utm_content%3D${encodeURIComponent(ref)}`;
+        finalWebUrl += `/?ref=${encodeURIComponent(ref)}`;
+      }
+
+      document.getElementById('btnWeb').href = finalWebUrl;
+      document.getElementById('btnPlay').href = playStoreUrl;
+    });
   </script>
 </head>
 <body>
   <div class="card">
     <h1>🎁 RewardGo</h1>
-    <p>La plataforma de entretenimiento donde juegas, completas tareas y obtienes recompensas.</p>
-    <button class="btn" onclick="redirectToPlayStore()">Descargar en Google Play</button>
+    <p>¡Te han invitado a unirte a RewardGo! Juega, completa tareas y gana recompensas desde tu móvil o navegador.</p>
+
+    <div id="codeDisplay" class="code-box">
+      Código de invitación: <span id="refCode"></span>
+    </div>
+
+    <a id="btnWeb" class="btn btn-web" href="#">🌐 Abrir Versión Web</a>
+    <a id="btnPlay" class="btn btn-play" href="#">📱 Descargar en Google Play</a>
+
     <div class="footer">
       <p>&copy; Aregon Solutions. Todos los derechos reservados.</p>
     </div>
