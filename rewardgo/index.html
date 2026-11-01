@@ -3,44 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RewardGo Web - Redirigiendo...</title>
+  <title>RewardGo - Recompensas, Juegos y Encuestas</title>
+  <meta name="description" content="Descarga RewardGo en Android. Juega minijuegos HTML5, completa encuestas y gana recompensas en PayPal, Amazon y recargas móviles.">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #241751;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
+    :root {
+      --bg-main: #1C103F;
+      --bg-card: #2B1B5D;
+      --accent: #FFB800;
+      --accent-hover: #FFA800;
+      --btn-web: #6C5CE7;
+      --text: #FFFFFF;
+      --text-dim: #C4BDDF;
+      --border: rgba(255, 255, 255, 0.1);
     }
-    .loader {
-      font-size: 18px;
-      color: #FFB800;
-      font-weight: bold;
-    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-main); color: var(--text); line-height: 1.6; padding-bottom: 40px; }
+    
+    header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 16px 24px; text-align: center; }
+    .logo { font-size: 24px; font-weight: bold; color: var(--accent); display: inline-flex; align-items: center; gap: 8px; }
+
+    .container { max-width: 850px; margin: 0 auto; padding: 24px 16px; }
+
+    /* Banner de Invitación */
+    .referral-banner { background: linear-gradient(135deg, #4834d4, #6c5ce7); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 24px; display: none; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .referral-banner h2 { font-size: 20px; margin-bottom: 6px; }
+    .code-badge { background: var(--accent); color: #1C103F; padding: 4px 12px; border-radius: 8px; font-weight: bold; font-size: 18px; display: inline-block; margin-top: 6px; }
+
+    /* Tarjeta Principal Hero */
+    .hero { background: var(--bg-card); border-radius: 20px; padding: 36px 24px; text-align: center; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 32px; }
+    .hero h1 { font-size: 30px; color: var(--accent); margin-bottom: 12px; }
+    .hero p { font-size: 16px; color: var(--text-dim); max-width: 600px; margin: 0 auto 24px; }
+    
+    .btn-playstore { display: inline-block; width: 100%; max-width: 320px; background: var(--accent); color: #1C103F; padding: 16px 28px; border-radius: 12px; font-size: 18px; font-weight: bold; text-decoration: none; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 15px rgba(255, 184, 0, 0.4); }
+    .btn-playstore:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    /* Grid de Características */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 36px; }
+    .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-align: center; }
+    .feature-icon { font-size: 36px; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 18px; color: var(--accent); margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--text-dim); }
+
+    /* Sección FAQ */
+    .section-title { font-size: 22px; color: var(--accent); margin-bottom: 16px; text-align: center; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 12px; text-align: left; }
+    .faq-item h4 { font-size: 16px; margin-bottom: 6px; color: #FFFFFF; }
+    .faq-item p { font-size: 14px; color: var(--text-dim); }
+
+    /* Footer */
+    footer { text-align: center; padding-top: 32px; border-top: 1px solid var(--border); margin-top: 40px; font-size: 13px; color: var(--text-dim); }
+    footer a { color: var(--accent); text-decoration: none; margin: 0 8px; }
   </style>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const ref = urlParams.get('ref') || '';
-    // Tu URL oficial comprobada de Firebase Hosting
-    const firebaseWebUrl = "https://bdrewardgo.web.app";
+    const packageId = "com.mycompany.rewardgo";
 
     window.addEventListener('DOMContentLoaded', () => {
-      let destinationUrl = firebaseWebUrl;
+      let playStoreUrl = `[suspicious link removed]{packageId}`;
+      
       if (ref) {
-        destinationUrl += `/?ref=${encodeURIComponent(ref)}`;
+        document.getElementById('refCode').textContent = ref;
+        document.getElementById('referralBanner').style.display = 'block';
+        playStoreUrl += `&referrer=utm_source%3Dreferral%26utm_content%3D${encodeURIComponent(ref)}`;
       }
-      // Redirección instantánea a la versión web activa
-      window.location.replace(destinationUrl);
+
+      document.getElementById('btnDownload').href = playStoreUrl;
     });
   </script>
 </head>
 <body>
-  <div class="loader">
-    🎁 Abriendo RewardGo Web...
+
+  <header>
+    <div class="logo">🎁 RewardGo</div>
+  </header>
+
+  <div class="container">
+
+    <!-- Banner si viene invitado -->
+    <div id="referralBanner" class="referral-banner">
+      <h2>🎉 ¡Te han invitado a RewardGo!</h2>
+      <p>Instala la app e introduce este código al crear tu cuenta:</p>
+      <div id="refCode" class="code-badge"></div>
+    </div>
+
+    <!-- Hero Principal -->
+    <div class="hero">
+      <h1>Gana Recompensas Jugando y Completando Tareas</h1>
+      <p>RewardGo es la plataforma de entretenimiento para Android donde acumulas monedas jugando minijuegos, completando encuestas y viendo videos recompensados.</p>
+      <a id="btnDownload" class="btn-playstore" href="#">📱 Descargar en Google Play</a>
+    </div>
+
+    <!-- Características -->
+    <h2 class="section-title">⚡ ¿Cómo Funciona RewardGo?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <h3>Juegos HTML5</h3>
+        <p>Juega partidas online u offline y acumula minutos convertibles en recompensas [RESUMEN_CAMBIOS.md, README.md].</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Encuestas y Tareas</h3>
+        <p>Responde encuestas con CPX Research y suma monedas al instante en tu saldo en tiempo real [RESUMEN_CAMBIOS.md, README.md].</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎟️</div>
+        <h3>Tickets y Ruleta</h3>
+        <p>Gana Tickets de Juego con videos AdMob SSV para girar la ruleta de multiplicadores o ampliar tu tiempo de juego [RESUMEN_CAMBIOS.md, README.md].</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎁</div>
+        <h3>Racha Diaria</h3>
+        <p>Entra todos los días para reclamar el bono progresivo de 7 días consecutivos [RESUMEN_CAMBIOS.md, README.md].</p>
+      </div>
+    </div>
+
+    <!-- Preguntas Frecuentes (FAQ) -->
+    <h2 class="section-title">❓ Preguntas Frecuentes</h2>
+    
+    <div class="faq-item">
+      <h4>¿Por qué la aplicación está disponible únicamente para Android?</h4>
+      <p>RewardGo utiliza componentes nativos del sistema operativo y la red de anuncios de Google AdMob para entregar recompensas seguras mediante verificación del lado del servidor (SSV) [RESUMEN_CAMBIOS.md, README.md]. La versión para iOS se encuentra actualmente en desarrollo.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>¿Cuáles son los métodos de canje disponibles?</h4>
+      <p>Puedes solicitar tu saldo acumulado a través de transferencias a PayPal, tarjetas de regalo de Amazon o recargas móviles para las principales operadoras [RESUMEN_CAMBIOS.md, README.md].</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>¿Cómo aplico un código de invitación?</h4>
+      <p>Al descargar la app desde un enlace con referido o ingresar manualmente el código al crear tu cuenta, el sistema registrará la vinculación y podrás acumular comisiones por invitaciones [RESUMEN_CAMBIOS.md, README.md].</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>¿Cómo contactar con Soporte Técnico?</h4>
+      <p>Si tienes alguna consulta sobre tu cuenta o retiros, escríbenos a nuestro correo oficial de atención: <strong>soporte@aregonsolutions.com</strong>.</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 <strong>Aregon Solutions</strong>. Todos los derechos reservados [Aregon Solutions | Desarrollo de Software & Apps Móviles].</p>
+      <p style="margin-top: 8px;">
+        <a href="#">Política de Privacidad</a> | 
+        <a href="#">Términos y Condiciones</a> | 
+        <a href="https://aregonsolutions.com">Aregon Solutions</a>
+      </p>
+    </footer>
+
   </div>
+
 </body>
-</html>
+</html>l>
