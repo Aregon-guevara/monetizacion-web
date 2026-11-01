@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RewardGo - Redirigiendo...</title>
+  <title>RewardGo Web - Redirigiendo...</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,34 +25,22 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const ref = urlParams.get('ref') || '';
-    const packageId = "com.mycompany.rewardgo";
+    // Tu URL oficial de la versión Web alojada en Firebase Hosting
     const firebaseWebUrl = "[suspicious link removed]";
 
-    // Detectar si el usuario navega desde un dispositivo móvil
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
     window.addEventListener('DOMContentLoaded', () => {
-      if (isMobile) {
-        // En móvil, redirigir inmediatamente a Google Play con el código de referido
-        let playStoreUrl = `[suspicious link removed]{packageId}`;
-        if (ref) {
-          playStoreUrl += `&referrer=utm_source%3Dreferral%26utm_content%3D${encodeURIComponent(ref)}`;
-        }
-        window.location.replace(playStoreUrl);
-      } else {
-        // En PC/Escritorio, redirigir inmediatamente a la app Web
-        let webUrl = firebaseWebUrl;
-        if (ref) {
-          webUrl += `/?ref=${encodeURIComponent(ref)}`;
-        }
-        window.location.replace(webUrl);
+      // Redirigir siempre a la app web conservando el parámetro de referido
+      let destinationUrl = firebaseWebUrl;
+      if (ref) {
+        destinationUrl += `/?ref=${encodeURIComponent(ref)}`;
       }
+      window.location.replace(destinationUrl);
     });
   </script>
 </head>
 <body>
   <div class="loader">
-    🎁 Redirigiendo a RewardGo...
+    🌐 Abriendo inicio de sesión en RewardGo Web...
   </div>
 </body>
 </html>
