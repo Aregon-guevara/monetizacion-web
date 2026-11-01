@@ -61,15 +61,21 @@
     const packageId = "com.mycompany.rewardgo";
 
     window.addEventListener('DOMContentLoaded', () => {
-      let playStoreUrl = `[suspicious link removed]{packageId}`;
+      // Concatenación limpia y directa del enlace a Play Store
+      let playStoreUrl = "https://play.google.com/store/apps/details?id=" + packageId;
       
       if (ref) {
-        document.getElementById('refCode').textContent = ref;
-        document.getElementById('referralBanner').style.display = 'block';
-        playStoreUrl += `&referrer=utm_source%3Dreferral%26utm_content%3D${encodeURIComponent(ref)}`;
+        const refCodeEl = document.getElementById('refCode');
+        const referralBannerEl = document.getElementById('referralBanner');
+        if (refCodeEl) refCodeEl.textContent = ref;
+        if (referralBannerEl) referralBannerEl.style.display = 'block';
+        playStoreUrl += "&referrer=utm_source%3Dreferral%26utm_content%3D" + encodeURIComponent(ref);
       }
 
-      document.getElementById('btnDownload').href = playStoreUrl;
+      const btnDownload = document.getElementById('btnDownload');
+      if (btnDownload) {
+        btnDownload.href = playStoreUrl;
+      }
     });
   </script>
 </head>
@@ -101,22 +107,22 @@
       <div class="feature-card">
         <div class="feature-icon">🎮</div>
         <h3>Juegos HTML5</h3>
-        <p>Juega partidas online u offline y acumula minutos convertibles en recompensas [RESUMEN_CAMBIOS.md, README.md].</p>
+        <p>Juega partidas online u offline y acumula minutos convertibles en recompensas.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📝</div>
         <h3>Encuestas y Tareas</h3>
-        <p>Responde encuestas con CPX Research y suma monedas al instante en tu saldo en tiempo real [RESUMEN_CAMBIOS.md, README.md].</p>
+        <p>Responde encuestas con CPX Research y suma monedas al instante en tu saldo en tiempo real.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🎟️</div>
         <h3>Tickets y Ruleta</h3>
-        <p>Gana Tickets de Juego con videos AdMob SSV para girar la ruleta de multiplicadores o ampliar tu tiempo de juego [RESUMEN_CAMBIOS.md, README.md].</p>
+        <p>Gana Tickets de Juego con videos AdMob SSV para girar la ruleta de multiplicadores o ampliar tu tiempo de juego.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🎁</div>
         <h3>Racha Diaria</h3>
-        <p>Entra todos los días para reclamar el bono progresivo de 7 días consecutivos [RESUMEN_CAMBIOS.md, README.md].</p>
+        <p>Entra todos los días para reclamar el bono progresivo de 7 días consecutivos.</p>
       </div>
     </div>
 
@@ -125,17 +131,17 @@
     
     <div class="faq-item">
       <h4>¿Por qué la aplicación está disponible únicamente para Android?</h4>
-      <p>RewardGo utiliza componentes nativos del sistema operativo y la red de anuncios de Google AdMob para entregar recompensas seguras mediante verificación del lado del servidor (SSV) [RESUMEN_CAMBIOS.md, README.md]. La versión para iOS se encuentra actualmente en desarrollo.</p>
+      <p>RewardGo utiliza componentes nativos del sistema operativo y la red de anuncios de Google AdMob para entregar recompensas seguras mediante verificación del lado del servidor (SSV). La versión para iOS se encuentra actualmente en desarrollo.</p>
     </div>
 
     <div class="faq-item">
       <h4>¿Cuáles son los métodos de canje disponibles?</h4>
-      <p>Puedes solicitar tu saldo acumulado a través de transferencias a PayPal, tarjetas de regalo de Amazon o recargas móviles para las principales operadoras [RESUMEN_CAMBIOS.md, README.md].</p>
+      <p>Puedes solicitar tu saldo acumulado a través de transferencias a PayPal, tarjetas de regalo de Amazon o recargas móviles para las principales operadoras.</p>
     </div>
 
     <div class="faq-item">
       <h4>¿Cómo aplico un código de invitación?</h4>
-      <p>Al descargar la app desde un enlace con referido o ingresar manualmente el código al crear tu cuenta, el sistema registrará la vinculación y podrás acumular comisiones por invitaciones [RESUMEN_CAMBIOS.md, README.md].</p>
+      <p>Al descargar la app desde un enlace con referido o ingresar manualmente el código al crear tu cuenta, el sistema registrará la vinculación y podrás acumular comisiones por invitaciones.</p>
     </div>
 
     <div class="faq-item">
@@ -144,10 +150,9 @@
     </div>
 
     <footer>
-      <p>&copy; 2026 <strong>Aregon Solutions</strong>. Todos los derechos reservados [Aregon Solutions | Desarrollo de Software & Apps Móviles].</p>
+      <p>&copy; 2026 <strong>Aregon Solutions</strong>. Todos los derechos reservados.</p>
       <p style="margin-top: 8px;">
         <a href="privacy.html">Política de Privacidad</a> | 
-        <a href="#">Términos y Condiciones</a> | 
         <a href="https://aregonsolutions.com">Aregon Solutions</a>
       </p>
     </footer>
@@ -155,4 +160,4 @@
   </div>
 
 </body>
-</html>l>
+</html>
