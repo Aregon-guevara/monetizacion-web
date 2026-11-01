@@ -3,58 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RewardGo - ¡Te han invitado!</title>
+  <title>RewardGo - Redirigiendo...</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background: #241751; color: white; padding: 40px 20px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-    .card { max-width: 440px; width: 100%; background: #332170; padding: 32px 24px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); }
-    h1 { color: #FFB800; font-size: 26px; margin-bottom: 12px; }
-    p { font-size: 15px; color: #E0E0E0; line-height: 1.5; margin-bottom: 16px; }
-    .code-box { background: rgba(0,0,0,0.3); border: 1px dashed #FFB800; border-radius: 10px; padding: 12px; margin: 16px 0; font-weight: bold; color: #FFB800; font-size: 18px; display: none; }
-    .btn { display: block; width: 100%; padding: 15px; margin-top: 12px; border-radius: 12px; font-weight: bold; text-decoration: none; font-size: 15px; transition: transform 0.2s, background 0.2s; }
-    .btn-web { background: #6C5CE7; color: white; }
-    .btn-web:hover { background: #5B4BC4; transform: translateY(-2px); }
-    .btn-play { background: #FFB800; color: #1A0D3F; }
-    .btn-play:hover { background: #FFA800; transform: translateY(-2px); }
-    .footer { margin-top: 24px; font-size: 12px; color: #A090C0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #241751;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .loader {
+      font-size: 18px;
+      color: #FFB800;
+      font-weight: bold;
+    }
   </style>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const ref = urlParams.get('ref') || '';
     const packageId = "com.mycompany.rewardgo";
-    const firebaseWebUrl = "[suspicious link removed]"; // Tu hosting de Firebase Web
+    const firebaseWebUrl = "[suspicious link removed]";
+
+    // Detectar si el usuario navega desde un dispositivo móvil
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     window.addEventListener('DOMContentLoaded', () => {
-      let playStoreUrl = `[suspicious link removed]{packageId}`;
-      let finalWebUrl = firebaseWebUrl;
-
-      if (ref) {
-        document.getElementById('refCode').textContent = ref;
-        document.getElementById('codeDisplay').style.display = 'block';
-        playStoreUrl += `&referrer=utm_source%3Dreferral%26utm_content%3D${encodeURIComponent(ref)}`;
-        finalWebUrl += `/?ref=${encodeURIComponent(ref)}`;
+      if (isMobile) {
+        // En móvil, redirigir inmediatamente a Google Play con el código de referido
+        let playStoreUrl = `[suspicious link removed]{packageId}`;
+        if (ref) {
+          playStoreUrl += `&referrer=utm_source%3Dreferral%26utm_content%3D${encodeURIComponent(ref)}`;
+        }
+        window.location.replace(playStoreUrl);
+      } else {
+        // En PC/Escritorio, redirigir inmediatamente a la app Web
+        let webUrl = firebaseWebUrl;
+        if (ref) {
+          webUrl += `/?ref=${encodeURIComponent(ref)}`;
+        }
+        window.location.replace(webUrl);
       }
-
-      document.getElementById('btnWeb').href = finalWebUrl;
-      document.getElementById('btnPlay').href = playStoreUrl;
     });
   </script>
 </head>
 <body>
-  <div class="card">
-    <h1>🎁 RewardGo</h1>
-    <p>¡Te han invitado a unirte a RewardGo! Juega, completa tareas y gana recompensas desde tu móvil o navegador.</p>
-
-    <div id="codeDisplay" class="code-box">
-      Código de invitación: <span id="refCode"></span>
-    </div>
-
-    <a id="btnWeb" class="btn btn-web" href="#">🌐 Abrir Versión Web</a>
-    <a id="btnPlay" class="btn btn-play" href="#">📱 Descargar en Google Play</a>
-
-    <div class="footer">
-      <p>&copy; Aregon Solutions. Todos los derechos reservados.</p>
-    </div>
+  <div class="loader">
+    🎁 Redirigiendo a RewardGo...
   </div>
 </body>
 </html>
