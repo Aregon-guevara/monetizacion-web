@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad - RewardGo</title>
+  <style>
+    :root {
+      --bg-main: #1C103F;
+      --bg-card: #2B1B5D;
+      --accent: #FFB800;
+      --text: #FFFFFF;
+      --text-dim: #C4BDDF;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-main); color: var(--text); line-height: 1.7; padding: 30px 20px; }
+    
+    .container { max-width: 800px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; padding: 32px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    h1 { color: var(--accent); font-size: 28px; margin-bottom: 10px; text-align: center; }
+    .update-date { text-align: center; font-size: 13px; color: var(--text-dim); margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    
+    h2 { color: var(--accent); font-size: 18px; margin-top: 24px; margin-bottom: 8px; }
+    p, li { font-size: 14px; color: var(--text-dim); margin-bottom: 12px; }
+    ul { margin-left: 20px; margin-bottom: 16px; }
+
+    .back-btn { display: inline-block; margin-bottom: 20px; color: var(--accent); text-decoration: none; font-weight: bold; font-size: 14px; }
+    .back-btn:hover { text-decoration: underline; }
+    
+    footer { text-align: center; margin-top: 32px; font-size: 12px; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="./" class="back-btn">← Volver a RewardGo</a>
+
+    <h1>Política de Privacidad</h1>
+    <div class="update-date">Última actualización: 1 de Noviembre de 2026</div>
+
+    <p>En <strong>RewardGo</strong> (desarrollada por <strong>Aregon Solutions</strong>), nos tomamos muy en serio la privacidad de nuestros usuarios. Esta Política de Privacidad describe cómo recopilamos, usamos, protegemos y compartimos la información personal cuando utilizas nuestra aplicación móvil y servicios web.</p>
+
+    <h2>1. Información que Recopilamos</h2>
+    <p>Para proporcionar el servicio de recompensas, sincronizar tus saldos y validar tus actividades, recopilamos los siguientes datos:</p>
+    <ul>
+      <li><strong>Información de Cuenta:</strong> Correo electrónico, nombre de usuario (display name), foto de perfil (si inicias sesión con Google o Microsoft) y código de referido asociado.</li>
+      <li><strong>Datos de Identificación del Dispositivo:</strong> Identificador único del dispositivo y tokens de notificación Push (FCM Token) para el envío de alertas sobre recompensas y estado de cuenta.</li>
+      <li><strong>Registros de Actividad y Recompensas:</strong> Historial de monedas acumuladas, Tickets de Juego virtual ganados, minutos jugados en minijuegos HTML5, encuestas completadas y solicitudes de canje (PayPal, Amazon o recargas móviles).</li>
+    </ul>
+
+    <h2>2. Uso de la Información</h2>
+    <p>Utilizamos la información recopilada exclusivamente para los siguientes fines:</p>
+    <ul>
+      <li>Gestionar tu cuenta de usuario y mantener tu saldo de monedas y tickets actualizado en tiempo real.</li>
+      <li>Validar la acreditación de anuncios recompensados mediante verificación del lado del servidor (AdMob SSV).</li>
+      <li>Procesar las solicitudes de canje de recompensas y prevenir actividades fraudulentas o duplicadas.</li>
+      <li>Enviar notificaciones operativas sobre tus logros, bono diario y actualizaciones del servicio.</li>
+    </ul>
+
+    <h2>3. Servicios de Terceros y Anuncios</h2>
+    <p>RewardGo se integra con proveedores de confianza para operar el sistema de publicidad, encuestas y almacenamiento en la nube:</p>
+    <ul>
+      <li><strong>Google Firebase:</strong> Autenticación de usuarios, base de datos en tiempo real (Firestore) y envío de notificaciones push.</li>
+      <li><strong>Google AdMob:</strong> Red de anuncios para mostrar videos bonificados validados mediante firmas criptográficas SSV.</li>
+      <li><strong>CPX Research:</strong> Plataforma de encuestas remuneradas que acredita monedas directamente en tu saldo.</li>
+      <li><strong>GamePix:</strong> Proveedor de catálogo de juegos en línea HTML5.</li>
+    </ul>
+
+    <h2>4. Protección y Retención de Datos</h2>
+    <p>Todos los datos se almacenan de forma segura en la infraestructura en la nube de Google Cloud / Firebase. Las operaciones críticas de saldo y transferencias son procesadas exclusivamente en el servidor mediante Cloud Functions protegidas, evitando manipulaciones externas.</p>
+
+    <h2>5. Eliminación de Cuentas y Derechos del Usuario</h2>
+    <p>Tienes derecho a acceder, actualizar o solicitar la eliminación total de tus datos personales en cualquier momento. Si deseas eliminar tu cuenta de RewardGo y purgar tu historial de la base de datos, puedes solicitarlo directamente enviando un mensaje a nuestro correo de atención oficial.</p>
+
+    <h2>6. Contacto</h2>
+    <p>Si tienes preguntas o inquietudes sobre esta Política de Privacidad o el tratamiento de tus datos, puedes ponerte en contacto con el equipo de desarrollo:</p>
+    <p><strong>Aregon Solutions</strong><br>
+    Correo electrónico de soporte: <strong>soporte@aregonsolutions.com</strong><br>
+    Sitio web: <strong>https://aregonsolutions.com</strong></p>
+
+    <footer>
+      &copy; 2026 Aregon Solutions. Todos los derechos reservados.
+    </footer>
+  </div>
+
+</body>
+</html>
