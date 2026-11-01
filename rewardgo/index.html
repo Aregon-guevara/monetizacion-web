@@ -25,22 +25,22 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const ref = urlParams.get('ref') || '';
-    // Tu URL oficial de la versión Web alojada en Firebase Hosting
-    const firebaseWebUrl = "[suspicious link removed]";
+    // Tu URL oficial comprobada de Firebase Hosting
+    const firebaseWebUrl = "https://bdrewardgo.web.app";
 
     window.addEventListener('DOMContentLoaded', () => {
-      // Redirigir siempre a la app web conservando el parámetro de referido
       let destinationUrl = firebaseWebUrl;
       if (ref) {
         destinationUrl += `/?ref=${encodeURIComponent(ref)}`;
       }
+      // Redirección instantánea a la versión web activa
       window.location.replace(destinationUrl);
     });
   </script>
 </head>
 <body>
   <div class="loader">
-    🌐 Abriendo inicio de sesión en RewardGo Web...
+    🎁 Abriendo RewardGo Web...
   </div>
 </body>
 </html>
