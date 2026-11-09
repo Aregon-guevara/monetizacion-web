@@ -1,10 +1,14 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.mycompany.rewardgo",
-    "sha256_cert_fingerprints": [
-      "6A:6A:14:74:B5:CB:BB:2B:1A:A5:7E:0B:C3"
-    ]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mycompany.rewardgo",
+      "sha256_cert_fingerprints": [
+        "EE:9D:80:7A:D5:FA:18:B2:A7:8D:6A:2A:21:05:80:31:36:88:72:8B:BF:CA:CD:9E:86:D3:19:40:50:A9:43:CE"
+      ]
+    }
   }
-}]
+]
