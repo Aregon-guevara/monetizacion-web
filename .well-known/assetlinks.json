@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.mycompany.rewardgo",
+    "sha256_cert_fingerprints": [
+      "6A:6A:14:74:B5:CB:BB:2B:1A:A5:7E:0B:C3"
+    ]
+  }
+}]
